@@ -23,11 +23,13 @@ int getMaximumPossibleNumber(int d);
 
 void printArray(int * array, int size);
 
-void insertInQueue(node_t *rightQueue, int value);
+void insertInQueue(node_t **rightQueue, int value);
 
 node_t removeFromQueue(int positionInQueues, node_t **queues);
 
 void printQueueValues(node_t *nodePointer);
+
+void printAllQueues(node_t **queues, void (*printQueue)(node_t *));
 
 node_t *getPointerToFirstOfRightQueue(int number, int numberOfDigits, int digit, node_t **queues);
 

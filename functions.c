@@ -17,20 +17,20 @@ node_t *getPointerToFirstOfRightQueue(int number, int numberOfDigits, int digit,
         cont++;
     }
 
-    return queues[array[digit]];
+    return queues[array[numberOfDigits - digit - 1]];
 
 }
 
-void insertInQueue(node_t *rightQueue, int value) {
+void insertInQueue(node_t **rightQueue, int value) {
 
     node_t *link = (node_t *) malloc(sizeof(node_t));
     link->next = NULL;
     link->value = value;
 
     if (rightQueue == NULL) {
-        rightQueue = link;
+        *rightQueue = link;
     } else {
-        node_t *nodePointer = rightQueue;
+        node_t *nodePointer = *rightQueue;
 
         while (nodePointer->next != NULL) {
             nodePointer = nodePointer->next;
@@ -55,9 +55,9 @@ void printQueueValues(node_t *nodePointer) {
     }
 }
 
-void printAllQueues(node_t **queues) {
+void printAllQueues(node_t **queues, void (*printQueue)(node_t *)) {
     for (int i = 0; i < 10; i++) {
-
+        printQueue(queues[i]);
     }
 }
 

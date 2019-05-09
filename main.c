@@ -44,7 +44,7 @@ int main()
 
     insertInQueue(getPointerToFirstOfRightQueue(34, 4, 0, queues), 4);
 
-
+    printAllQueues(queues,printQueueValues);
 
 
 
