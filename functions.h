@@ -23,10 +23,9 @@ int getMaximumPossibleNumber(int d);
 
 void printArray(int * array, int size);
 
-void insertInQueue(int positionInQueues, int value, node_t **queues);
+void insertInQueue(node_t *rightQueue, int value);
 
 node_t removeFromQueue(int positionInQueues, node_t **queues);
-
 
 void printQueueValues(node_t *nodePointer);
 

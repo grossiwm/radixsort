@@ -28,24 +28,22 @@ int main()
 //
 //    printf("\nLista ordenada: ");
 
-    insertInQueue(4, 1, queues);
-    insertInQueue(4, 6, queues);
-    insertInQueue(4, 5, queues);
-    insertInQueue(4, 3, queues);
+//    printQueueValues(queues[4]);
+//
+//    printf("\n");
+//
+//    removeFromQueue(4, queues);
+//
+//    printQueueValues(queues[4]);
+//
+//    printf("\n");
+//
+//    removeFromQueue(0, queues);
+//
+//    getPointerToFirstOfRightQueue(34, 4, 0, queues);
 
-    printQueueValues(queues[4]);
+    insertInQueue(getPointerToFirstOfRightQueue(34, 4, 0, queues), 4);
 
-    printf("\n");
-
-    removeFromQueue(4, queues);
-
-    printQueueValues(queues[4]);
-
-    printf("\n");
-
-    removeFromQueue(0, queues);
-
-    printQueueValues(getPointerToFirstOfRightQueue(34, 4, int digit, node_t **queues));
 
 
 

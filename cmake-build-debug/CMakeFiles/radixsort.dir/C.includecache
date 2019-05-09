@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/gabrielrossi/Desktop/Dev/radixsort/functions.c
-functions.h
-/Users/gabrielrossi/Desktop/Dev/radixsort/functions.h
-
 /Users/gabrielrossi/Desktop/Dev/radixsort/functions.h
 stdio.h
 -
@@ -19,4 +15,8 @@ stdlib.h
 -
 math.h
 /Users/gabrielrossi/Desktop/Dev/radixsort/math.h
+
+/Users/gabrielrossi/Desktop/Dev/radixsort/main.c
+functions.h
+/Users/gabrielrossi/Desktop/Dev/radixsort/functions.h
 
