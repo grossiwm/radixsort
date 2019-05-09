@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gabrielrossi/Desktop/Dev/radixsort/functions.c
+functions.h
+/Users/gabrielrossi/Desktop/Dev/radixsort/functions.h
+
+/Users/gabrielrossi/Desktop/Dev/radixsort/functions.h
+stdio.h
+-
+time.h
+-
+stdlib.h
+-
+math.h
+/Users/gabrielrossi/Desktop/Dev/radixsort/math.h
+
