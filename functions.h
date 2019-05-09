@@ -30,5 +30,7 @@ node_t removeFromQueue(int positionInQueues, node_t **queues);
 
 void printQueueValues(node_t *nodePointer);
 
+node_t *getPointerToFirstOfRightQueue(int number, int numberOfDigits, int digit, node_t **queues);
+
 
 #endif //RADIXSORT_FUNCTIONS_H

@@ -45,7 +45,8 @@ int main()
 
     removeFromQueue(0, queues);
 
-    printQueueValues(queues[4]);
+    printQueueValues(getPointerToFirstOfRightQueue(34, 4, int digit, node_t **queues));
+
 
 
 

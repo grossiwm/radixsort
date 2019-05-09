@@ -1,6 +1,26 @@
 
 #include "functions.h"
 
+
+//Sendo o digito 0 o menos significativo
+node_t *getPointerToFirstOfRightQueue(int number, int numberOfDigits, int digit, node_t **queues) {
+    int *array = (int *) malloc(sizeof(int)*digit);
+    int cont = 0;
+    while(cont < numberOfDigits) {
+
+        if (number/10 != 0) {
+            array[cont] = number%10;
+        } else {
+            array[cont] = 0;
+        }
+
+        cont++;
+    }
+
+    return queues[array[digit]];
+
+}
+
 void insertInQueue(int positionInQueues, int value, node_t **queues) {
 
     node_t *link = (node_t *) malloc(sizeof(node_t));
