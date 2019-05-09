@@ -1,6 +1,40 @@
 
 #include "functions.h"
 
+void insertInQueue(int positionInQueues, int value, node_t **queues) {
+
+    node_t *link = (node_t *) malloc(sizeof(node_t));
+    link->next = NULL;
+    link->value = value;
+
+    if (queues[positionInQueues] == NULL) {
+        queues[positionInQueues] = link;
+    } else {
+        node_t *nodePointer = queues[positionInQueues];
+
+        while (nodePointer->next != NULL) {
+            nodePointer = nodePointer->next;
+        }
+        nodePointer->next = link;
+    }
+
+}
+
+node_t removeFromQueue(int positionInQueues, node_t **queues) {
+    node_t *first = queues[positionInQueues];
+    node_t *newFirstPointer = first->next;
+    queues[positionInQueues] = newFirstPointer;
+    free(first);
+}
+
+
+void printQueueValues(node_t *nodePointer) {
+    if (nodePointer != NULL) {
+        printf(" %d",nodePointer->value);
+        printQueueValues(nodePointer->next);
+    }
+}
+
 void presentation() {
     printf(""
            "______          _ _        _____            _   \n"
@@ -27,50 +61,9 @@ int getLargest(int arr[], int n)
 }
 
 
-void countSort(int list[], int n, int exp)
-{
-    int output[n];
-    int i, count[10] = {0};
-
-    for (i = 0; i < n; i++) {
-        count[ (list[i]/exp)%10 ]++;
-    }
-
-
-    for (i = 1; i < 10; i++) {
-        count[i] += count[i - 1];
-    }
-
-
-    for (i = n - 1; i >= 0; i--)
-    {
-        output[count[ (list[i]/exp)%10 ] - 1] = list[i];
-        count[ (list[i]/exp)%10 ]--;
-    }
-
-
-    for (i = 0; i < n; i++) {
-        list[i] = output[i];
-    }
-
-}
-
-
-void radixSort(int *list, int n)
-{
-    int largest = getLargest(list, n);
-
-
-    for (int exp = 1; largest/exp > 0; exp *= 10) {
-        countSort(list, n, exp);
-    }
-
-}
-
 void fillListWithRandom(int maxValue, int *array, int length) {
     printf("\nGerando lista aleatória...\n");
     srand(time(NULL));
-    int r = rand();
     for( int i = 0; i < length; i++ ) {
         array[i] = rand() % maxValue;
     }
