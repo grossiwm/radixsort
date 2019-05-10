@@ -35,6 +35,17 @@ int main()
 
     printAllQueues(queues,printQueueValues);
 
+    int position = 0;
+    for (int i = 0; i < 10; i++) {
+        while (queues[i] != NULL) {
+            list[position] = removeFromQueue(i, queues);
+            position++;
+        }
+    }
+
+    printAllQueues(queues,printQueueValues);
+
+    printArray(list, n);
 
     return 0;
 }

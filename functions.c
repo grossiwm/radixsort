@@ -1,30 +1,6 @@
 
 #include "functions.h"
 
-int *getSemiSorted(int d, node_t **queues, int *list, int n, int step) {
-
-    for (int i = 0; i < n; i++) {
-        insertInQueue(getRightQueue(step, getIntInArray(list[i], d), queues), list[i]);
-    }
-
-    int *semiSorted = (int *) malloc(sizeof(int)*n);
-    int cont = 0;
-    int value;
-
-    for (int j = 0; j < 10; j++) {
-        int value = 1;
-        while(value > 0) {
-            value = semiSorted[cont];
-            if (value > 0) {
-                semiSorted[cont] = removeFromQueue(j, queues);
-                cont++;
-            }
-        }
-        cont++;
-    }
-
-    return semiSorted;
-}
 
 
 int *getIntInArray(int number, int numberOfDigits) {
@@ -81,11 +57,10 @@ int removeFromQueue(int positionInQueues, node_t **queues) {
 
         queues[positionInQueues] = first->next;
 
-        return value;
-    }else{
-        return -1;
-    }
+        free(first);
 
+        return value;
+    }
 }
 
 void printQueueValues(node_t *nodePointer) {
