@@ -1,33 +1,67 @@
 
 #include "functions.h"
 
+int *getSemiSorted(int d, node_t **queues, int *list, int n, int step) {
+
+    for (int i = 0; i < n; i++) {
+        insertInQueue(getRightQueue(step, getIntInArray(list[i], d), queues), list[i]);
+    }
+
+    int *semiSorted = (int *) malloc(sizeof(int)*n);
+    int cont = 0;
+    int value;
+
+    for (int j = 0; j < 10; j++) {
+        int value = 1;
+        while(value > 0) {
+            value = semiSorted[cont];
+            if (value > 0) {
+                semiSorted[cont] = removeFromQueue(j, queues);
+                cont++;
+            }
+        }
+        cont++;
+    }
+
+    return semiSorted;
+}
+
 
 int *getIntInArray(int number, int numberOfDigits) {
+    //Coloca os algarismos de um número em um array invertido
     int *array = (int *) malloc(sizeof(int)*numberOfDigits);
     int rest = 0;
+    int cont = 0;
 
-    while(numberOfDigits) {
+    while(cont < numberOfDigits) {
         if (number > 0) {
             rest = number % 10;
             number /= 10;
-            array[numberOfDigits - 1] = rest;
-            numberOfDigits--;
+            array[cont] = rest;
+            cont++;
         } else {
-            array[numberOfDigits - 1] = 0;
-            numberOfDigits--;
+            array[cont] = 0;
+            cont++;
         }
     }
     return array;
 
 }
 
-void insertInQueue(node_t **rightQueue, int value) {
+node_t **getRightQueue(int step, int *numberArray, node_t **queues) {
+    //os steps começam dos menos significativos para os mais significativos
+    int number = numberArray[step];
+
+    return &queues[number];
+}
+
+void insertInQueue(node_t **rightQueue, int *value) {
 
     node_t *link = (node_t *) malloc(sizeof(node_t));
     link->next = NULL;
     link->value = value;
 
-    if (rightQueue == NULL) {
+    if (*rightQueue == NULL) {
         *rightQueue = link;
     } else {
         node_t *nodePointer = *rightQueue;
@@ -40,13 +74,19 @@ void insertInQueue(node_t **rightQueue, int value) {
 
 }
 
-node_t removeFromQueue(int positionInQueues, node_t **queues) {
-    node_t *first = queues[positionInQueues];
-    node_t *newFirstPointer = first->next;
-    queues[positionInQueues] = newFirstPointer;
-    free(first);
-}
+int removeFromQueue(int positionInQueues, node_t **queues) {
+    if (queues[positionInQueues]) {
+        node_t *first = queues[positionInQueues];
+        int value = first->value;
 
+        queues[positionInQueues] = first->next;
+
+        return value;
+    }else{
+        return -1;
+    }
+
+}
 
 void printQueueValues(node_t *nodePointer) {
     if (nodePointer != NULL) {
@@ -57,6 +97,7 @@ void printQueueValues(node_t *nodePointer) {
 
 void printAllQueues(node_t **queues, void (*printQueue)(node_t *)) {
     for (int i = 0; i < 10; i++) {
+        printf("\nFila %d: ", i);
         printQueue(queues[i]);
     }
 }

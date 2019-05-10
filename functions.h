@@ -23,15 +23,19 @@ int getMaximumPossibleNumber(int d);
 
 void printArray(int * array, int size);
 
-void insertInQueue(node_t **rightQueue, int value);
+void insertInQueue(node_t **rightQueue, int *value);
 
-node_t removeFromQueue(int positionInQueues, node_t **queues);
+int removeFromQueue(int positionInQueues, node_t **queues);
 
 void printQueueValues(node_t *nodePointer);
 
 void printAllQueues(node_t **queues, void (*printQueue)(node_t *));
 
 int *getIntInArray(int number, int numberOfDigits);
+
+node_t **getRightQueue(int step, int *numberArray, node_t **queues);
+
+int *getSemiSorted(int d, node_t **queues, int *list, int n, int step);
 
 
 #endif //RADIXSORT_FUNCTIONS_H
