@@ -2,22 +2,22 @@
 #include "functions.h"
 
 
-//Sendo o digito 0 o menos significativo
-node_t *getPointerToFirstOfRightQueue(int number, int numberOfDigits, int digit, node_t **queues) {
+int *getIntInArray(int number, int numberOfDigits) {
     int *array = (int *) malloc(sizeof(int)*numberOfDigits);
-    int cont = 0;
-    while(cont < numberOfDigits) {
+    int rest = 0;
 
-        if (number/10 != 0) {
-            array[cont] = number%10;
+    while(numberOfDigits) {
+        if (number > 0) {
+            rest = number % 10;
+            number /= 10;
+            array[numberOfDigits - 1] = rest;
+            numberOfDigits--;
         } else {
-            array[cont] = 0;
+            array[numberOfDigits - 1] = 0;
+            numberOfDigits--;
         }
-
-        cont++;
     }
-
-    return queues[array[numberOfDigits - digit - 1]];
+    return array;
 
 }
 

@@ -9,7 +9,7 @@ int main()
 //    int d;
 //
 //    //Vetor que guarda ponteiros para primeiras posições de filas
-    node_t *queues[10] = {NULL};
+//    node_t *queues[10] = {NULL};
 //
 //
 //    printf("\nInsira o número de elementos a serem gerados para a lista: ");
@@ -42,9 +42,9 @@ int main()
 //
 //    getPointerToFirstOfRightQueue(34, 4, 0, queues);
 
-    insertInQueue(getPointerToFirstOfRightQueue(34, 4, 0, queues), 4);
 
-    printAllQueues(queues,printQueueValues);
+
+    printArray(getIntInArray(170,10), 10);
 
 
 

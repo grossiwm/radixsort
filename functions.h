@@ -31,7 +31,7 @@ void printQueueValues(node_t *nodePointer);
 
 void printAllQueues(node_t **queues, void (*printQueue)(node_t *));
 
-node_t *getPointerToFirstOfRightQueue(int number, int numberOfDigits, int digit, node_t **queues);
+int *getIntInArray(int number, int numberOfDigits);
 
 
 #endif //RADIXSORT_FUNCTIONS_H
