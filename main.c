@@ -3,7 +3,7 @@
 int main()
 {
 
-//    presentation();
+    presentation();
 
     int n;
     int d;
@@ -24,28 +24,34 @@ int main()
     printArray(list, n);
 
     int number;
-    node_t *rightQueue;
+    node_t **rightQueue;
     int *numberArray;
-    for (int i = 0; i < n; i++) {
-        number = list[i];
-        numberArray = getIntInArray(number, d);
-        rightQueue = getRightQueue(0, numberArray, queues);
-        insertInQueue(rightQueue, number);
-    }
+    int position;
+    int i;
 
-    printAllQueues(queues,printQueueValues);
+    for (int step = 0; step < d; step ++) {
 
-    int position = 0;
-    for (int i = 0; i < 10; i++) {
-        while (queues[i] != NULL) {
-            list[position] = removeFromQueue(i, queues);
-            position++;
+        for (i = 0; i < n; i++) {
+            number = list[i];
+            numberArray = getIntInArray(number, d);
+            rightQueue = getRightQueue(step, numberArray, queues);
+            insertInQueue(rightQueue, number);
         }
+
+        printAllQueues(queues,printQueueValues);
+
+        position = 0;
+        for (i = 0; i < 10; i++) {
+            while (queues[i] != NULL) {
+                list[position] = removeFromQueue(i, queues);
+                position++;
+            }
+        }
+
+        printf("\n\nLista semi-ordenada: ");
+        printArray(list, n);
+
     }
-
-    printAllQueues(queues,printQueueValues);
-
-    printArray(list, n);
 
     return 0;
 }

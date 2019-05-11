@@ -14,16 +14,13 @@ typedef struct Node {
 
 void presentation();
 
-int getLargest(int arr[], int n);
-
-
 void fillListWithRandom(int maxValue, int *array, int length);
 
 int getMaximumPossibleNumber(int d);
 
 void printArray(int * array, int size);
 
-void insertInQueue(node_t **rightQueue, int *value);
+void insertInQueue(node_t **rightQueue, int value);
 
 int removeFromQueue(int positionInQueues, node_t **queues);
 
@@ -34,8 +31,6 @@ void printAllQueues(node_t **queues, void (*printQueue)(node_t *));
 int *getIntInArray(int number, int numberOfDigits);
 
 node_t **getRightQueue(int step, int *numberArray, node_t **queues);
-
-int *getSemiSorted(int d, node_t **queues, int *list, int n, int step);
 
 
 #endif //RADIXSORT_FUNCTIONS_H

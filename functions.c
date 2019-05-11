@@ -31,7 +31,7 @@ node_t **getRightQueue(int step, int *numberArray, node_t **queues) {
     return &queues[number];
 }
 
-void insertInQueue(node_t **rightQueue, int *value) {
+void insertInQueue(node_t **rightQueue, int value) {
 
     node_t *link = (node_t *) malloc(sizeof(node_t));
     link->next = NULL;
