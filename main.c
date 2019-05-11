@@ -38,6 +38,8 @@ int main()
             insertInQueue(rightQueue, number);
         }
 
+        printf("\n\nPasso: %d\n", step + 1);
+
         printAllQueues(queues,printQueueValues);
 
         position = 0;
@@ -48,8 +50,16 @@ int main()
             }
         }
 
-        printf("\n\nLista semi-ordenada: ");
+
+        if (step != d - 1) {
+            printf("\n\nLista semi-ordenada: ");
+        } else {
+            printf("\n\nLista ordenada: ");
+        }
+
         printArray(list, n);
+
+        printf("---------------------------------------------------------------------------");
 
     }
 
