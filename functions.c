@@ -88,18 +88,9 @@ void presentation() {
            "                                                \n"
            "                                                "
            "\n");
-    printf("\nIntegrantes: Gabriel Rossi, Abel Warakia, Fernando Gatto");
+
     printf("\n---------------------------------------------------------\n");
 
-}
-
-int getLargest(int arr[], int n)
-{
-    int largest = arr[0];
-    for (int i = 1; i < n; i++)
-        if (arr[i] > largest)
-            largest = arr[i];
-    return largest;
 }
 
 
@@ -114,7 +105,7 @@ void fillListWithRandom(int maxValue, int *array, int length) {
 int getMaximumPossibleNumber(int d) {
     int value = 0;
     for (int i; i < d; i++) {
-        value += 9 * pow(10,i);
+        value += 9 * (int) (pow(10,i) + 0.5);
     }
     return value;
 }

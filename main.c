@@ -35,6 +35,7 @@ int main()
             number = list[i];
             numberArray = getIntInArray(number, d);
             rightQueue = getRightQueue(step, numberArray, queues);
+            free(numberArray);
             insertInQueue(rightQueue, number);
         }
 
