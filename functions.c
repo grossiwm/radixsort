@@ -4,7 +4,7 @@
 
 
 int *getIntInArray(int number, int numberOfDigits) {
-    //Coloca os algarismos de um número em um array invertido
+    //Cria um array com os algarismos de um número
     int *array = (int *) malloc(sizeof(int)*numberOfDigits);
     int rest = 0;
     int cont = 0;
@@ -25,7 +25,7 @@ int *getIntInArray(int number, int numberOfDigits) {
 }
 
 node_t **getRightQueue(int step, int *numberArray, node_t **queues) {
-    //os steps começam dos menos significativos para os mais significativos
+
     int number = numberArray[step];
 
     return &queues[number];

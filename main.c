@@ -7,7 +7,7 @@ int main()
 
     int n;
     int d;
-    //Vetor que guarda ponteiros para primeiras posições de filas
+    //Vetor que guardará ponteiros para primeiras posições de filas, inicialmente nulo
     node_t *queues[10] = {NULL};
 
     printf("\nInsira o número de elementos a serem gerados para a lista: ");
