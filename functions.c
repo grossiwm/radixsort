@@ -60,6 +60,8 @@ int removeFromQueue(int positionInQueues, node_t **queues) {
         free(first);
 
         return value;
+    } else {
+        return -1;
     }
 }
 
@@ -96,7 +98,7 @@ void presentation() {
 
 void fillListWithRandom(int maxValue, int *array, int length) {
     printf("\nGerando lista aleatória...\n");
-    srand(time(NULL));
+    srand((unsigned int) time(NULL));
     for( int i = 0; i < length; i++ ) {
         array[i] = rand() % maxValue;
     }
@@ -104,7 +106,7 @@ void fillListWithRandom(int maxValue, int *array, int length) {
 
 int getMaximumPossibleNumber(int d) {
     int value = 0;
-    for (int i; i < d; i++) {
+    for (int i = 0; i < d; i++) {
         value += 9 * (int) (pow(10,i) + 0.5);
     }
     return value;
